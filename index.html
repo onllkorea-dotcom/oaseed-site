@@ -10,11 +10,11 @@
 <meta property="og:image" content="https://onllkorea-dotcom.github.io/oaseed-site/assets/og.jpg">
 <meta property="og:url" content="https://onllkorea-dotcom.github.io/oaseed-site/">
 <meta name="theme-color" content="#FBF5E6">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23D9342B%22/%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2216%22 fill=%22%23F6C544%22/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%228%22 fill=%22%23F3EDE0%22/%3E%3Ccircle cx=%2222%22 cy=%2232%22 r=%2211%22 fill=%22none%22 stroke=%22%23CEAF56%22 stroke-width=%224%22/%3E%3Ccircle cx=%2246%22 cy=%2232%22 r=%2211%22 fill=%22%23CEAF56%22/%3E%3C/svg%3E">
 <link rel="canonical" href="https://onllkorea-dotcom.github.io/oaseed-site/">
 <style>:root{color-scheme:light}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>OASEED 오아시드</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
 <style>
 /* 레이아웃: 스마트스토어 상세페이지 무드 — 크림 바탕 + 레드/그린/옐로 풀폭 밴드, 라운드 박스, 굵은 헤드, 실사 파우치 */
 :root{
@@ -135,6 +135,32 @@ section{padding-block:96px} .band.bgband>.wrap>section{padding-block:96px} .stor
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)} .stats div{border-right:0;border-bottom:1px solid var(--line)} .stats div:nth-child(odd){border-right:1px solid var(--line)} .stats div:nth-last-child(-n+1){border-bottom:0}}
 /* 미세 모션 */
 @media (prefers-reduced-motion:no-preference){.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease} .reveal.in{opacity:1;transform:none}}
+
+/* ── v16 톤앤매너 v3 정합: 바탕 2색(크림/잉크) + 골드 헤어라인 + EN CAPS 킥커(Inter) + 손글씨 헤드 + 근거 라인 + ◎● 마크 */
+:root{--kick:'Inter','Noto Sans KR',sans-serif; --bg:#F3EDE0; --paper:#FBF7EE; --ink:#1E1F1F; --gold:#CEAF56; --gold-d:#A8862F; --line:#E2D8C3}
+h1,h2{font-family:var(--display);font-weight:400;letter-spacing:0;line-height:1.08}
+h1{font-size:clamp(3.2rem,8vw,5.8rem)} h2{font-size:clamp(2.3rem,5vw,3.4rem)}
+.eyebrow{font-family:var(--kick);font-weight:600;font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-d);border:0;padding:0}
+.mark{display:inline-flex;align-items:center;gap:10px} .mark::before{content:"";width:26px;height:14px;background:
+ radial-gradient(circle at 7px 7px, transparent 4.5px, var(--gold) 5px, var(--gold) 6.5px, transparent 7px),
+ radial-gradient(circle at 19px 7px, var(--gold) 6.5px, transparent 7px);}
+/* 밴드: 그린·퍼플·옐로 → 잉크/크림으로 정리 */
+.band.green.story{background:var(--ink)!important;color:#F3EDE0} .band.green.story::before{opacity:.08!important;filter:grayscale(1)} .band.green.story::after{background:rgba(30,31,31,.55)!important}
+.story .eyebrow,.story .four b,.story .attitudes b,.story h2{color:var(--gold)} .story .four>div{border-top:1px solid rgba(206,175,86,.45)} .story .attitudes li{border-color:rgba(206,175,86,.3)}
+.faqband{background:var(--bg)!important} .faqband::before{opacity:.10!important;filter:grayscale(1)} .faqband::after{background:rgba(243,237,224,.6)!important} .faqband h2,.faqband p.lead{color:var(--ink)} .faqband .eyebrow{color:var(--gold-d);background:none}
+.bgband[style*="BG_PROOF"]{} 
+.hero .shots::before{background:var(--ink);border-radius:8px;inset:auto 4% 2% 4%;height:62%}
+.hero .tag{background:none;color:var(--ink);border:1.5px solid var(--gold);transform:none;font-size:1.3rem;padding:4px 16px 2px}
+/* 골드 헤어라인 프레임 */
+.card,.pf,.howto>div,.faqs details,.detail details,.qr{border:1.5px solid var(--gold);border-radius:6px;box-shadow:none} .card:hover{transform:none;box-shadow:none}
+.cta{border-radius:6px;border:1.5px solid var(--ink)} .cta.ig{background:var(--ink);color:#F3EDE0} .cta.ss,.cta.cp{background:transparent}
+.stats{border-color:var(--gold)} .stats div{border-color:var(--gold)} .stats b{font-family:var(--kick);font-weight:600;letter-spacing:-.02em} .stats b small{color:var(--gold-d)}
+.zero span{border-radius:6px;border-color:var(--gold);color:var(--ink)}
+.strip img,.gal img{border-radius:6px} .card .shot img{border-radius:0}
+.where.band.yellow{background:var(--ink)} .where .qr{border-color:var(--gold)} .where .cta{border-color:#F3EDE0;color:#F3EDE0} .where .cta.ig{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+/* 근거 라인 */
+.proofline{font-family:var(--kick);font-weight:500;font-size:.72rem;letter-spacing:.14em;color:var(--gold-d);border-top:1px solid var(--gold);padding:14px 0 0;margin:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+footer{border-top:1.5px solid var(--gold)}
 </style>
 
 <div class="wrap">
@@ -368,6 +394,7 @@ section{padding-block:96px} .band.bgband>.wrap>section{padding-block:96px} .stor
 </div></section>
 
 <div class="wrap">
+<p class="proofline"><span>품목보고 202106177336 · 202106177340</span><span>HACCP</span><span>유기가공식품 인증 제17800515호</span><span>KIB R20260224-0017 · 0019</span><span>특허 제10-2177749호 · 제10-2520354호</span></p>
 <footer>
   <div>
     <p><b>OASEED</b></p>
