@@ -387,13 +387,17 @@ footer{border-top:1.5px solid var(--gold)}
 .th:hover{transform:translateY(-3px)} .th:focus-visible{outline:2px solid #CEAF56;outline-offset:3px}
 .th img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:0}
 body.en .th.ko, body:not(.en) .th.en{display:none}
-#thdlg{border:0;padding:0;background:transparent;max-width:min(92vw,720px);max-height:92vh}
-#thdlg::backdrop{background:rgba(30,31,31,.82)}
-#thdlg img{width:100%;height:auto;display:block;border-radius:14px;cursor:zoom-out}
-#thdlg .cap{color:#F3EDE0;text-align:center;font:600 11px/1 Inter,'Noto Sans KR',sans-serif;letter-spacing:.2em;margin:12px 0 0}
+#thdlg{border:0;padding:0;background:transparent;max-width:min(94vw,900px);max-height:94vh;overflow:auto;scrollbar-width:thin}
+#thdlg::backdrop{background:rgba(30,31,31,.84)}
+#thdlg img{display:block;max-width:min(94vw,900px);max-height:86vh;width:auto;height:auto;margin:0 auto;border-radius:14px;cursor:zoom-out;background:#fff}
+#thdlg.tall img{max-height:none;width:min(94vw,760px)}
+#thdlg .cap{color:#F3EDE0;text-align:center;font:600 11px/1.5 Inter,'Noto Sans KR',sans-serif;letter-spacing:.18em;margin:12px 0 4px}
+.gal img,.strip img,.card .shot .face img,details img,.th img{cursor:zoom-in}
 </style>
 <script>
-function openTh(b){var d=document.getElementById('thdlg');d.querySelector('img').src=b.querySelector('img').src;d.querySelector('.cap').textContent=b.getAttribute('aria-label').toUpperCase().replace('썸네일 ','OASEED · ');d.showModal();}
+function openImg(img){var d=document.getElementById('thdlg');var t=d.querySelector('img');t.src=img.currentSrc||img.src;t.alt=img.alt||'';d.classList.toggle('tall',(img.naturalHeight||1)/(img.naturalWidth||1)>1.7);d.querySelector('.cap').textContent=(img.alt||'OASEED').replace(/^OASEED /,'OASEED · ');d.showModal();d.scrollTop=0;}
+function openTh(b){openImg(b.querySelector('img'));}
+document.addEventListener('click',function(e){var img=e.target.closest('.gal img,.strip img,.card .shot .face img,details img');if(!img||e.target.closest('#thdlg'))return;var f=img.closest('.face');if(f&&getComputedStyle(f).opacity==='0')return;e.preventDefault();openImg(img);});
 </script>
 <div class="wrap">
 </div>
